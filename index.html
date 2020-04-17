@@ -1,0 +1,49 @@
+<html>
+
+<body>
+
+    <form action="" id="quote-form" onsubmit="return checkForm(this);">
+        <h3>Get a quote today</h3><br>
+
+        <label for="pick-up" id="locationField">Pick up Address</label><br>
+        <input id="originautocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+
+        <br>
+        <label for="drop-off" id="locationField">Drop off Address</label><br>
+        <input id="destinationautocomplete" placeholder="Enter your address" onFocus="geolocate()"
+            type="text"></input><br>
+
+        <br>
+
+        <!-- Choose Van Radio Buttons -->
+        <label for="size">Choose a Van:</label><br>
+        <input type="radio" name="selectedvan" value="svan" onclick="selectVan(value)"/>
+        <label for="svan">Small (Bipper/Caddy)</label><br>
+        <input type="radio" name="selectedvan" value="mvan" onclick="selectVan(value)"/>
+        <label for="mvan">Medium (SWB/MWB)</label><br>
+        <input type="radio" name="selectedvan" value="lvan" onclick="selectVan(value)"/>
+        <label for="lvan">Large (Sprinter LWB)</label><br>
+        <input type="radio" name="selectedvan" value="xlvan" onclick="selectVan(value)"/>
+        <label for="xlvan">Extra Base (Luton/Curtain Side)</label><br>
+        <!-- END Choose Van Radio Buttons -->
+        <br>
+
+        <div>
+            <input type='button' value="Submit" id="myButton" onclick="calculatePrice()"></input>
+        </div>
+        <br>
+
+
+        <div id="totalPrice"></div>
+        <div id="errorMesasge"></div>
+
+    </form>
+    
+    <script src="directions.js"></script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+</body>
+
+</html>
